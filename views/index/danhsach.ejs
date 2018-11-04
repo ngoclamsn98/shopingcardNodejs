@@ -1,0 +1,48 @@
+<%include ../layout/header %>
+<div class="container">
+  <div class="row">
+    <%function doidau(str){%>
+        <%str = str.toLowerCase();%>
+        <%str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');%>
+        <%str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');%>
+        <%str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');%>
+        <%str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');%>
+        <%str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');%>
+        <%str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');%>
+        <%str = str.replace(/(đ)/g, 'd');%>
+        <%str = str.replace(/([^0-9a-z-\s])/g, '');%>
+        <%str = str.replace(/(\s+)/g, '-');%>
+        <%str = str.replace(/^-+/g, '');%>
+        <%str = str.replace(/-+$/g, '');%>
+        <%return str;%>
+    <%}%>
+    <%sanpham.forEach((value,key)=>{%>
+      <%var slug=doidau(value.tensp)%>
+      <div class="col-md-3 mb-3">
+        <div class="card">
+          <a href="/chitiet/<%=slug%>.<%=value._id%>"><img class="card-img-top" src="/uploads/<%=value.img%>" alt="Card image cap"></a>
+          <div class="card-body">
+            <a href="/chitiet/<%=slug%>.<%=value._id%>"><h6 class="card-title"><%=value.tensp%></h6></a>
+            <div class="card-text"><%=value.gia%></div>
+          </div>
+        </div>
+      </div>
+    <%})%>
+    </div>
+  </div>
+  <div class="_phantrang" style="margin-bottom:10px;">
+        <%if(page==1){%>
+          <li class="disabled"><i class="material-icons">arrow_back</i></li>
+        <%}else{%>
+          <li class=""><i class="material-icons">arrow_back</i></li>
+        <%}%>
+        <%for(let i=1;i<=pages;i++){%>
+          <li><a href="/danhsach?page=<%=i%>"><%=i%></a></li>
+        <%}%>
+        <%if(page==pages){%>
+          <li class="disabled"><i class="material-icons">arrow_forward</i></li>
+        <%}else{%>
+          <li><i class="material-icons">arrow_forward</i></li>
+        <%}%>
+  </div>
+<%include ../layout/footer %>

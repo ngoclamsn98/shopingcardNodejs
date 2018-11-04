@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/stylesheets/menu.css">
+</head>
+<body>
+	<header>
+		<div class="trai">
+			<h2>A D M I N</h2>
+		</div>
+		<div class="search"><i class="material-icons back">arrow_back</i><input type="text" class="fucking"></div>
+		<div class="phai">
+			<ul>
+				<li><i class="material-icons tim">search</i></li>
+				<li><i class="material-icons">mail</i></li>
+				<li><i class="material-icons">notifications</i></li>
+				<li><i class="material-icons dp48">format_indent_increase</i></li>
+				<li><i class="material-icons">settings_applications</i></li>
+				<li><i class="material-icons">textsms</i></li>
+			</ul>
+		</div>
+	</header><!-- Xong Header -->
+	<div class="bao">
+		<div class="left">
+			<div class="people">
+				<div class="avatar">
+					<img src="/img/test.jpg" alt="" width="35" height="35">
+					<%if(user){%>
+						<div class="a1">
+							<div><%=user.username%></div>
+							<div><%=user.email%></div>
+						</div>
+					<%}%>
+					<div class="cong">+</div>
+				</div>
+				<ul>
+					<li>View Profile</li>
+					<li>Setting</li>
+					<li><a href="/admin/logout">Logout</a></li>
+				</ul>
+			</div>
+			<div class="menu">
+				<li><i class="material-icons" style="padding-right: 13px;">home</i><a href="/admin">Home</a></li>
+				<div class="cha">
+					<div class="omcon">
+						<li>
+							<i class="material-icons" style="padding-right: 13px;">storage</i>Menu
+							<ul>
+								<li>Menu Cấp 1</li>
+								<li>Menu Cấp 2</li>
+								<li>Menu Cấp 3</li>
+							</ul>
+						</li>
+					</div>
+				</div>
+
+				<div class="chuyenmuc">
+					<!-- <div class="chuyemuc2"> -->
+						<li>
+						<i class="material-icons" style="padding-right: 13px;">dvr</i><a href="/admin/chuyenmuc">Chuyên Mục</a>
+						<ul>
+							<li>Quần Áo</li>
+							<li>Dày Dép</li>
+							<li>Mỹ Phẩm</li>
+							<li>Khác</li>
+						</ul>
+					</li>
+					<!-- </div> -->
+				</div>
+				<div class="upload">
+					<li>
+						<i class="material-icons" style="padding-right: 13px;">publish</i>Upload
+						<ul>
+							<li><a href="/admin">Sản Phẩm</a></li>
+							<li></li>
+						</ul>
+					</li>
+				</div>
+			</div>
+		</div>

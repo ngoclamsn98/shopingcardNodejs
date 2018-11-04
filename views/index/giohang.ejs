@@ -1,0 +1,49 @@
+<%include ../layout/header %>
+<%if(giohang.length ==0){%>
+  <h2>Bạn Nên Mua Sắm Thêm</h2>
+<%}else{%>
+  <div class="phan__noidung">
+    <div class="ben-trai__a">
+      <div class="sp__1">
+        <table class="table">
+          <tr>
+            <th>STT</th>
+            <th>Ảnh sản Phẩm</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Giá</th>
+            <th>Quantity</th>
+          </tr>
+          <%var tongtien=0;%>
+          <%giohang.forEach((value,key)=>{%>
+            <%var tien=(+value.gia)*(+value.qty)%>
+            <%tongtien+=tien%>
+            <tr>
+              <td><%=key+1%></td>
+              <td><img src="/uploads/<%=value.img%>" /></td>
+              <td><%=value.tensp%></td>
+              <td><%=tien%><sup>đ</sup></td>
+              <td class="fuck">
+                <div>
+                  <a href="/update/<%=value.id%>?action=up">+</a>
+                      <input type="text" min='1' max='10' value="<%=value.qty%>" id="input" data-id="<%=value.id%>">
+                  <a href="/update/<%=value.id%>?action=dow">-</a>
+                </div>
+                <div>
+                  <a href="/update/<%=value.id%>?action=clear"><i class="material-icons">delete</i></a>
+                </div>
+              </td>
+            </tr>
+          <%})%>
+        </table>
+      </div>
+    </div>
+    <div class="ben-phai__b">
+      <h2>Tóm tắt theo thứ tự</h2>
+      <p>Tổng Số Mục : <%=giohang.length%></p>
+      <p>Phi Vận Chuyển : $1</p>
+      <p>Tổng Tiền :<%=tongtien%> <sup>đ</sup></p>
+      <div class="confirm">Xác Nhận</div>
+    </div>
+  </div>
+<%}%>
+<%include ../layout/footer %>

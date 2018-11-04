@@ -1,0 +1,48 @@
+<%include ../layout/headerAdmin.ejs %>
+
+		<div class="right">
+			<div class="form__so1">
+				<div class="nut d-flex justify-content-end">
+					<div class="btn btn-warning mr-3 ds">Danh Sách</div>
+					<div class="btn btn-primary mr-5 up" style="display:none;">UpLoad</div>
+				</div>
+				<div class="form-upload">
+					<h2 class="text-md-center">Edit Sản Phẩm</h2>
+					<%if(data){%>
+            <form action="/admin/edit/<%=data._id%>" method="post"  enctype="multipart/form-data">
+  						<div class="form-group">
+  					    <label for="formGroupExampleInput">Tên Sản Phẩm</label>
+  					    <input type="text" value="<%=data.tensp%>" class="form-control" id="formGroupExampleInput" placeholder="Tên Sản Phẩm" name="tensp">
+  					  </div>
+  					  <div class="form-group">
+  					    <label for="formGroupExampleInput2">Giá Sản Phẩm</label>
+  					    <input type="text" class="form-control" value="<%=data.gia%>" id="formGroupExampleInput2" placeholder="Giá Sản Phẩm" name="gia">
+  					  </div>
+
+  					  <div class="form-group">
+  					    <label for="formGroupExampleInput2">Mô tả sản phẩm</label>
+  					    <input type="text" class="form-control" value="<%=data.mota%>" id="formGroupExampleInput2" placeholder="Mô tả sản Phẩm" name="mota">
+  					  </div>
+
+  					  <div class="form-group">
+  							<label for="inputState">Thể Loại</label>
+								<select id="inputState" class="form-control" name="theloai">
+					        <%dulieu.forEach((value,key)=>{%>
+										<option value="<%=value.chuyenmuc%>"><%=value.chuyenmuc%></option>
+									<%})%>
+					      </select>
+  					  </div>
+  							<div class="form-group">
+  								<input type="file" name="avatar" id="file" class="inputfile" />
+  								<label for="file">Choose a file</label>
+  							</div>
+  						<button class="btn btn-primary">ADD</button>
+  					</form>
+          <%}%>
+				</div>
+		</div>
+	</div>
+	</div> <!-- Xong container -->
+
+	<!-- Phần Javascript -->
+<%include ../layout/footerAdmin.ejs %>

@@ -1,0 +1,101 @@
+<% include ../layout/header.ejs %>
+ <!--Hết Nav  -->
+  <div class="_container">
+    <div class="_layout-1">
+      <div class="_slide">
+        <div class="_anh-slide">
+          <li class="active"><img src="img/gd1.jpg" alt="" width="700" height="400"></li>
+          <li><img src="img/gd2.jpg" alt="" width="700" height="400"></li>
+          <li><img src="img/gd3.jpg" alt="" width="700" height="400"></li>
+        </div>
+        <div class="_nut-tron">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </div>
+        <div class="_mui-ten">
+          <li><i class="material-icons">navigate_before</i></li>
+          <li><i class="material-icons">navigate_next</i></li>
+        </div>
+      </div><!-- Hết slide -->
+      <div class="_sanpham">
+        <h3>Sản Phẩm</h3>
+        <div class="_sanpham-content">
+          <div class="row">
+            <%sanpham.forEach((value,key)=>{%>
+              <div class="col-md-4">
+                <div class="card">
+                  <img class="card-img-top" src="/uploads/<%=value.img%>" alt="Card image cap">
+                  <div class="card-body">
+                    <h6 class="card-title"><%=value.tensp%></h6>
+                    <div class="card-text"><%=value.gia%></div>
+                    <div class="card-text"><%=value.theloai%></div>
+                  </div>
+                </div>
+              </div>
+            <%})%>
+            <%#  %>
+          </div>
+        </div>
+      </div>
+    </div> <!-- Layout 1-->
+    <div class="_layout-2">
+      <div class="_right-1">
+        <img src="img/gd4.jpg" alt="" width="430">
+      </div>
+      <div class="_right-2">
+        <img src="img/gd5.jpg" alt="" width="430">
+      </div>
+      <div class="_right-3">
+        <img src="img/gd6.jpg" alt="" width="430">
+      </div>
+      <div class="_right-4">
+        <img src="img/gd7.jpg" alt="" width="430">
+      </div>
+    </div> <!-- Layout 2 -->
+  </div><!-- Hêt Container -->
+  <div class="_bottom-content">
+    <h2>OTHER PRODUCTS</h2>
+    <p>Check our all local product in this session</p>
+    <hr>
+    <div class="_slide-context">
+      <div class="_anh-t">
+        <div class="trai"><i class="material-icons">navigate_before</i></div>
+          <div class="_boc-ngoai">
+            <img src="img/gd8.jpg" alt="">
+            <h4>Tên Sản Phẩm</h4>
+            <div class="ct">
+              <span>Giá:$1.99</span> |
+              <span><i class="material-icons">shopping_cart</i></span>
+            </div>
+          </div>
+          <div class="_boc-ngoai">
+            <img src="img/gd9.jpg" alt="">
+            <h4>Tên Sản Phẩm</h4>
+            <div class="ct">
+              <span>Giá:$1.99</span> |
+              <span><i class="material-icons">shopping_cart</i></span>
+            </div>
+          </div>
+          <div class="_boc-ngoai">
+            <img src="img/gd10.png" alt="">
+            <h4>Tên Sản Phẩm</h4>
+            <div class="ct">
+              <span>Giá:$1.99</span> |
+              <span><i class="material-icons">shopping_cart</i></span>
+            </div>
+          </div>
+          <div class="_boc-ngoai">
+            <img src="img/gd11.jpg" alt="">
+            <h4>Tên Sản Phẩm</h4>
+            <div class="ct">
+              <span>Giá:$1.99</span> |
+              <span><i class="material-icons">shopping_cart</i></span>
+            </div>
+          </div>
+          <div class="phai"><i class="material-icons">navigate_next</i></div>
+      </div>
+    </div>
+  </div>
+  <!--  Hết botton content-->
+<% include ../layout/footer %>

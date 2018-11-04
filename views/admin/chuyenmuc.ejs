@@ -1,0 +1,62 @@
+<%include ../layout/headerAdmin.ejs %>
+  <div class="right">
+    <div class="form__so1">
+				<div class="nut d-flex justify-content-end">
+					<div class="btn btn-warning mr-3 ds">Danh Sách</div>
+					<div class="btn btn-primary mr-5 up" style="display:none;">UpLoad</div>
+				</div>
+				<div class="form-upload">
+					<h2 class="text-md-center">UpLoad Chuyên Mục</h2>
+					<form action="/admin/chuyenmuc" method="post">
+						<div class="form-group">
+					    <label for="formGroupExampleInput">Chuyên Mục</label>
+					    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Chuyên Mục" name="chuyenmuc">
+					  </div>
+						<button class="btn btn-primary" type="submit">ADD</button>
+					</form>
+				</div>
+				<!-- Heets Form up Load -->
+				<div class="danh_sach mt-5" style="display:none;">
+					<div class="input-group mb-3">
+						<form action="/tim" class="d-flex">
+							<div class="input-group-prepend">
+						    <select class="tim" name="timkiem">
+						    	<option value="id">ID</option>
+						    	<option value="name">NAME</option>
+						    </select>
+						  </div>
+						  <input type="text" style="width:444px;">
+							<button type="submit" style="color:#FFF;background:#547f92;padding: 0px 14px;font-size: 14px;border: none;">Tìm</button>
+						</form>
+					</div>
+					<table class="table">
+					  <thead class="thead-dark">
+					    <tr>
+					      <th scope="col">STT</th>
+					      <th scope="col">Tên Chuyên Mục</th>
+                <th scope="col">Tùy Chọn</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <%data.forEach((value,key)=>{%>
+                <tr>
+  					      <th scope="row"><%=key+1%></th>
+  					      <td><%=value.chuyenmuc%></td>
+  								<td>
+  									<a href="/admin/chuyenmuc/edit/<%=value._id%>" class="btn btn-success">Edit</a>
+  									<a href="/admin/chuyenmuc/xoa/<%=value._id%>" class="btn btn-danger" onclick="return xoahaykhong('Bạn Thật Sự Muốn Xóa !')">Xóa</a>
+  								</td>
+  					    </tr>
+              <%})%>
+					  </tbody>
+            <script type="text/javascript">
+							var xoahaykhong=(tinnhan)=>{
+								if(window.confirm(tinnhan)===true) return true;
+								return false;
+							}
+						</script>
+					</table>
+				</div>
+		</div>
+  </div>
+<%include ../layout/footerAdmin.ejs %>

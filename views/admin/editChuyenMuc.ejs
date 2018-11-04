@@ -1,0 +1,23 @@
+<%include ../layout/headerAdmin.ejs %>
+  <div class="right">
+    <div class="form__so1">
+				<div class="nut d-flex justify-content-end">
+					<div class="btn btn-warning mr-3 ds">Danh Sách</div>
+					<div class="btn btn-primary mr-5 up" style="display:none;">UpLoad</div>
+				</div>
+				<div class="form-upload">
+					<h2 class="text-md-center">Edit Chuyên Mục</h2>
+          <%if(data){%>
+            <form action="/admin/chuyenmuc/edit/<%=data._id%>" method="post">
+  						<div class="form-group">
+  					    <label for="formGroupExampleInput">Chuyên Mục</label>
+  					    <input type="text" class="form-control"value="<%=data.chuyenmuc%>" id="formGroupExampleInput" placeholder="Chuyên Mục" name="chuyenmuc">
+  					  </div>
+  						<button class="btn btn-primary" type="submit">ADD</button>
+  					</form>
+          <%}%>
+
+				</div>
+				</div>
+		</div>
+<%include ../layout/footerAdmin.ejs %>

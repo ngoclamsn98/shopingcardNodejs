@@ -1,0 +1,65 @@
+<%include ../layout/header %>
+<div class="chitiet__sanpham">
+      <%if(sanpham){%>
+        <div class="ben__trai">
+          <img src="/uploads/<%=sanpham.img%>" alt="">
+        </div>
+        <div class="ben__phai">
+          <div class="thong__so">
+            <h4><%=sanpham.tensp%></h4>
+            <p>Mô tả: <%=sanpham.mota%></p>
+            <p>Giá:<%=sanpham.gia%> <sup>đ</sup></p>
+            <p>Màu :Hồng</p>
+            <p>Size : M </p>
+          </div>
+          <div class="add__sp">
+            <span>Mua Ngay <a href=""><li><i class="material-icons">shopping_basket</i></li></a></span>
+             <a href="/add/giohang/<%=sanpham._id%>"><span>Thêm Vào Giỏ Hàng<li><i class="material-icons">add_shopping_cart</i></li></span></a>
+          </div>
+        </div>
+      <%}%>
+    </div>
+<div class="_bottom-content">
+  <h2>OTHER PRODUCTS</h2>
+  <p>Check our all local product in this session</p>
+  <hr>
+  <div class="_slide-context">
+    <div class="_anh-t">
+      <div class="trai"><i class="material-icons">navigate_before</i></div>
+        <div class="_boc-ngoai">
+          <img src="img/gd8.jpg" alt="">
+          <h4>Tên Sản Phẩm</h4>
+          <div class="ct">
+            <span>Giá:$1.99</span> |
+            <span><i class="material-icons">shopping_cart</i></span>
+          </div>
+        </div>
+        <div class="_boc-ngoai">
+          <img src="img/gd9.jpg" alt="">
+          <h4>Tên Sản Phẩm</h4>
+          <div class="ct">
+            <span>Giá:$1.99</span> |
+            <span><i class="material-icons">shopping_cart</i></span>
+          </div>
+        </div>
+        <div class="_boc-ngoai">
+          <img src="img/gd10.png" alt="">
+          <h4>Tên Sản Phẩm</h4>
+          <div class="ct">
+            <span>Giá:$1.99</span> |
+            <span><i class="material-icons">shopping_cart</i></span>
+          </div>
+        </div>
+        <div class="_boc-ngoai">
+          <img src="img/gd11.jpg" alt="">
+          <h4>Tên Sản Phẩm</h4>
+          <div class="ct">
+            <span>Giá:$1.99</span> |
+            <span><i class="material-icons">shopping_cart</i></span>
+          </div>
+        </div>
+        <div class="phai"><i class="material-icons">navigate_next</i></div>
+    </div>
+  </div>
+</div>
+<%include ../layout/footer %>

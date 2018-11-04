@@ -1,0 +1,55 @@
+<footer>
+  <div class="_khoi-1"></div>
+  <div class="_khoi-2"></div>
+</footer>
+<%# <script src="https://code.jquery.com/jquery-3.3.1.js"></script> %>
+<script type="text/javascript">
+  const body =document.querySelector('body');
+  const input = document.querySelectorAll('#input');
+  const ulUser = document.querySelector('ul.profileuser');
+  body.onclick=function (e) {
+    if(e.target.className.includes('user')){
+      ulUser.classList.toggle('active');
+    }
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    for(let i=0;i<input.length;i++){
+          input[i].onchange=function(){
+            const id = input[i].getAttribute('data-id');
+            fetch('http://localhost:3000/giohang/'+id,{
+              method:'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body:JSON.stringify({giatri:(+input[i].value)})
+            })
+            .then(res=>res.text())
+            .then(data=>window.location.reload())
+          }
+        }
+  })
+  // <--------------  Nếu Dùng Jquery Thì Dùng cái này ---------------->
+  //   $(document).ready(function() {
+  //     for(let i=0;i<input.length;i++){
+  //       input[i].onchange=function(){
+  //         const id = input[i].getAttribute('data-id');
+  //         $.ajax({
+  //                   method:'POST',
+  //                   url: "/giohang/"+id,
+  //                   data:{giatri: input[i].value},
+  //                   success:(result)=>{
+  //                     window.location.reload();
+  //                   },
+  //                   errors:(err)=>{
+  //                     alert('cap nhat that bai'+err);
+  //                     return err;
+  //                   }
+  //               });
+  //       }
+  //     }
+  // });
+
+</script>
+</body>
+</html>
